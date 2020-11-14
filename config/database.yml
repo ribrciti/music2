@@ -1,0 +1,31 @@
+# PostgreSQL. Versions 9.3 and up are supported.
+#
+# Install the pg driver:
+#   gem install pg
+
+# Configure Using Gemfile
+# gem 'pg'
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: music2_development
+  username: ricks_program
+  password: eliminator1
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: music2_test
+
+production:
+  <<: *default
+  database: music2_production
+  username: music2

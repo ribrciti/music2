@@ -1,0 +1,22 @@
+<%= form_with(model: [ @band, album ], local: true) do |form| %>
+  <% if album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(album.errors.count, "error") %> prohibited this album from being saved:</h2>
+
+      <ul>
+        <% album.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group">
+    <%= form.text_field :name, placeholder: 'New album name...', class: "form-control mr-2" %>
+    <%= form.text_area :songs, placeholder: 'Add song names...', rows: '1', class: "form-control ml-2 "  %>
+    <%= form.text_field :band_id, placeholder: 'Id', size: '2', class: 'ml-2' %>
+  <div class="input-group-append ml-2">
+    <%= form.submit class: "btn btn-sm btn-primary"%>
+  </div>
+</div>
+<% end %>

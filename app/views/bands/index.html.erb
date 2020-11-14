@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<div class="container m-4">
+  <%= link_to 'New Band', new_band_path, class: "btn btn-sm btn-primary mx-2 mb-4" %>
+  <h1>Bands</h1>
+  <div class="row">
+    <% @bands.each do |band| %>
+    <div class="col-4">
+      <h3  class="mr-4"><%= band.name %></h3>
+    </div>
+    <div class="col-3">
+      <span class="mx-4">  <%= band.description %></span>
+    </div>
+    <div class="col-1">
+      <span class="mx-4"><%= band.user_id %></span>
+    </div>
+    <div class="col-4">
+      <span class=""><%= link_to 'Albums', band, class: "btn btn-sm btn-primary pull-right"%>
+      <%= link_to 'Edit', edit_band_path(band) , class: "btn btn-sm btn-outline-primary" %>
+      <%= link_to 'Destroy', band, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-sm btn-outline-primary" %></span>
+    </div>
+
+
+  <% end %>
+</div>
+</div>
+
+
